@@ -53,3 +53,8 @@ Navbar.propTypes = {
   title: PropTypes.string,
   aboutName: PropTypes.string,
 };
+
+Navbar.defaultProps = {
+  title: "This is Title",
+  aboutName: "This is About Name",
+};
