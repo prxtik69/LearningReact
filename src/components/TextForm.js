@@ -3,12 +3,12 @@ import React, { useState } from "react";
 export default function TextForm(props) {
   const [text, useText] = useState("Enter Your Text");
   const Changetext = () => {
-    console.log("Change Text");
+    // console.log("Change Text");
     let Newtext = text.toUpperCase();
     useText(Newtext);
   };
 
-  const Changed = (event) => {
+  const ChangedEvent = (event) => {
     useText(event.target.value);
   };
   return (
@@ -20,7 +20,7 @@ export default function TextForm(props) {
           id="exampleFormControlTextarea1"
           rows="8"
           value={text}
-          onChange={Changed}
+          onChange={ChangedEvent}
         ></textarea>
       </div>
       <button className="btn btn-primary" onClick={Changetext}>
