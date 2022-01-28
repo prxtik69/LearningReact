@@ -1,14 +1,19 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
+import DarkMode from "./components/DarkMode";
 import TextForm from "./components/TextForm";
+import Navbar from "./components/Navbar";
+// import TextForm from "./components/TextForm";
 
 function App() {
   return (
     <>
-      <Navbar title="MyApp" aboutName="About My Page" />
-      <div className="container my-3">
-        <TextForm heading="Enter Your Text Here" />
-      </div>
+       <Navbar title="MyApp" aboutName="About My Page" />
+       <div className="container">
+
+       <TextForm />
+       <DarkMode/>
+
+       </div>
     </>
   );
 }

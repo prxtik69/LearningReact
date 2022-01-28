@@ -13,6 +13,12 @@ export default function TextForm(props) {
     useText(LowerCaseText);
   }
 
+  const ClearText = () => {
+    useText("");
+  }
+
+  
+
   const ChangedEvent = (event) => {
     useText(event.target.value);
   };
@@ -29,18 +35,22 @@ export default function TextForm(props) {
           onChange={ChangedEvent}
         ></textarea>
       </div>
-      <button className="btn btn-outline-primary" onClick={ChangeToUpperCase}>
+      <button className="btn btn-outline-primary mx-2" onClick={ChangeToUpperCase}>
         Convert to Uppercase
       </button>
-      <button className="btn btn-outline-danger" onClick={ChangeToLowerCase}>
+      <button className="btn btn-outline-danger mx-2" onClick={ChangeToLowerCase}>
         Convert to Lowercase
       </button>
+      <button className="btn btn-outline-warning mx-2" onClick={ClearText}>
+        Clear Text
+      </button>
+      
     </div>
 
     <div className="container my-5">
       <h1>Your Text Summary</h1>
      
-      <p><b>Your Text Has :  <code>{text.split(" ").length - 1} Words and {text.length} Characters</code></b></p>
+      <p><b>Your Text Has :  <code>{text.split(" ").length} Words and {text.length} Characters</code></b></p>
       <p>Your Text Took {0.008 * text.split(" ").length} minutes to read.</p>
       <h2>Preview</h2>
       <p>{text}</p>
