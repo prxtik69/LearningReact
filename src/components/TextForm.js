@@ -11,15 +11,18 @@ export default function TextForm(props) {
   const ChangeToUpperCase = () => {
     let UpperCaseText = text.toUpperCase();
     useText(UpperCaseText);
+    props.showAlert(`Text is now in UPPER CASE`, "success");
   };
 
   const ChangeToLowerCase = () => {
     let LowerCaseText = text.toLowerCase();
     useText(LowerCaseText);
+    props.showAlert(`Text is now in LOWER CASE`, "success");
   }
 
   const ClearText = () => {
     useText("");
+    props.showAlert(`Text is cleared now`, "success");
   }
 
   

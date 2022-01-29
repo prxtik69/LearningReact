@@ -2,8 +2,35 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default function Navbar(props) {
+  const Style1 = {
+    background: "none",
+      color: "red",
+      border: "none",
+      paddingRight: 25,
+      font: "inherit",
+      cursor: "pointer",
+      outline: "inherit"
+  }
+  const Style2 = {
+    background: "none",
+      color: "#04ff00",
+      border: "none",
+      paddingRight: 25,
+      font: "inherit",
+      cursor: "pointer",
+      outline: "inherit"
+  }
+  const Style3 = {
+    background: "none",
+      color: "yellow",
+      border: "none",
+      paddingRight: 25,
+      font: "inherit",
+      cursor: "pointer",
+      outline: "inherit"
+  }
   return (
-    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
+    <nav id="navbar" className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -32,6 +59,10 @@ export default function Navbar(props) {
               </a>
             </li>
           </ul>
+          
+          <button id="redButton" className="text-decoration-none" style={Style1} onClick={props.ChangeColorRed}>Red</button>
+          <button className="text-decoration-none" style={Style2} onClick={props.ChangeColorGreen}>Green</button>
+          <button className="text-decoration-none" style={Style3} onClick={props.ChangeColorYellow}>Yellow</button>
           <div className={`form-check form-switch ${props.mode === "light"? "text-dark" : "text-light"}`}>
             <input className="form-check-input" type="checkbox" onClick={props.toggleMode} role="switch" id="flexSwitchCheckDefault" />
             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
