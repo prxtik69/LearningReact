@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , Fragment} from 'react';
 import "./App.css";
 import Alert from "./components/Alert";
 import About from "./components/About";
@@ -74,19 +74,20 @@ function App() {
 
 
       <Router>
+        <Fragment>
+
         <Navbar title="MyApp" aboutName="About My Page" mode={mode} toggleMode={toggleMode} ChangeColorRed={ChangeColorRed} ChangeColorGreen={ChangeColorGreen} ChangeColorYellow={ChangeColorYellow} />
         <Alert alertMessage={alert} />
         <div className="container my-3">
 
           <Routes>
-            <Route path="/about">
-              <About />
+            <Route path="/about" element={<About />}>
             </Route>
-            <Route path="/">
-              <TextForm heading="Enter Your Text to Analyze" mode={mode} showAlert={showAlert} />
+            <Route path="/" element={<TextForm heading="Enter Your Text to Analyze" mode={mode} showAlert={showAlert} />}>
             </Route>
           </Routes>
         </div>
+        </Fragment>
       </Router>
 
 
