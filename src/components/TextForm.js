@@ -30,6 +30,14 @@ export default function TextForm(props) {
   const ChangedEvent = (event) => {
     useText(event.target.value);
   };
+
+  function wordcounter(text) {
+    let wordNumber = text.split(' ').filter(
+        function (n) { return n !== '' }
+    ).length;
+    return wordNumber;
+}
+
   return (
     <>
     <div className="container">
@@ -59,8 +67,8 @@ export default function TextForm(props) {
     <div className="container my-5">
       <h1>Your Text Summary</h1>
      
-      <p><b>Your Text Has :  <code>{text.split(" ").length} Words and {text.length} Characters</code></b></p>
-      <p>Your Text Took {0.008 * text.split(" ").length} minutes to read.</p>
+      <p><b>Your Text Has :  <code>{wordcounter(text)} Words and {text.length} Characters</code></b></p>
+      <p>Your Text Took {0.008 * wordcounter(text)} minutes to read.</p>
       <h2>Preview</h2>
       <p>{text.length > 0 ? text : "Enter Something in the Text Box above to preview it here."}</p>
     </div>

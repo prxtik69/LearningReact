@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import "./App.css";
-// import DarkMode from "./components/DarkMode";
 import Alert from "./components/Alert";
+import About from "./components/About";
 import TextForm from "./components/TextForm";
 import Navbar from "./components/Navbar";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 function App() {
 
@@ -23,6 +28,7 @@ function App() {
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
+      document.title = "Pratik's App | Dark Mode";
       showAlert("Dark Mode Enabled", "success");
 
       document.body.style.backgroundColor = "#3d3d3b";
@@ -30,41 +36,61 @@ function App() {
     }
     else {
       setMode("light");
+      document.title = "Pratik's App | Light Mode";
       showAlert("Dark Mode Disabled", "success");
 
       document.body.style.backgroundColor = "#f5f5f5";
       document.body.style.color = "black";
     }
   }
-  
+
   const ChangeColorRed = () => {
+    document.title = "Pratik's App | Red Mode";
     document.body.style.backgroundColor = "#5c1b11";
     document.body.style.color = "white";
     document.getElementById("exampleFormControlTextarea1").style.backgroundColor = "white";
+    document.getElementById("exampleFormControlTextarea1").style.color = "black";
     showAlert("Background Color Changed to Red", "success");
   }
   const ChangeColorGreen = () => {
+    document.title = "Pratik's App | Green Mode";
     document.body.style.backgroundColor = "#03691e";
     document.body.style.color = "white";
     document.getElementById("exampleFormControlTextarea1").style.backgroundColor = "white";
+    document.getElementById("exampleFormControlTextarea1").style.color = "black";
     showAlert("Background Color Changed to Green", "success");
   }
 
   const ChangeColorYellow = () => {
+    document.title = "Pratik's App | Yellow Mode";
     document.body.style.backgroundColor = "#898f15";
     document.body.style.color = "white";
     document.getElementById("exampleFormControlTextarea1").style.backgroundColor = "white";
+    document.getElementById("exampleFormControlTextarea1").style.color = "black";
     showAlert("Background Color Changed to Yellow", "success");
   }
   return (
     <>
-      <Navbar title="MyApp" aboutName="About My Page" mode={mode} toggleMode={toggleMode} ChangeColorRed={ChangeColorRed} ChangeColorGreen={ChangeColorGreen} ChangeColorYellow={ChangeColorYellow}/>
-      <Alert alertMessage={alert} />
-      <div className="container">
 
-        <TextForm heading="Enter Your Text to Analyze" mode={mode} showAlert={showAlert} />
 
-      </div>
+      <Router>
+        <Navbar title="MyApp" aboutName="About My Page" mode={mode} toggleMode={toggleMode} ChangeColorRed={ChangeColorRed} ChangeColorGreen={ChangeColorGreen} ChangeColorYellow={ChangeColorYellow} />
+        <Alert alertMessage={alert} />
+        <div className="container my-3">
+
+          <Routes>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/">
+              <TextForm heading="Enter Your Text to Analyze" mode={mode} showAlert={showAlert} />
+            </Route>
+          </Routes>
+        </div>
+      </Router>
+
+
+
     </>
   );
 }
