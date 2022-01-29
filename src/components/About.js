@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-export default function DarkMode() {
+export function About() {
  const [darkMode, setDarkMode] = useState({
   color: "#3d3d3b",
   backgroundColor: "white",
@@ -25,7 +25,7 @@ export default function DarkMode() {
  }
  return (
   <>
-   <div className="container text-center my-5" style={<darkMode />}>
+   <div className="container text-center my-5" style={darkMode}>
     <h1>This is Paragraph</h1>
     <button onClick={style} className="btn btn-primary">
      {btnText}

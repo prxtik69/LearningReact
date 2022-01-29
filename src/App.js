@@ -1,7 +1,7 @@
 import React, { useState, Fragment } from "react"
 import "./App.css"
 import Alert from "./components/Alert"
-import About from "./components/About"
+import { About } from "./components/About"
 import TextForm from "./components/TextForm"
 import Navbar from "./components/Navbar"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
