@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import React, { useState , Fragment} from 'react';
-import "./App.css";
-import Alert from "./components/Alert";
-import About from "./components/About";
-import TextForm from "./components/TextForm";
-import Navbar from "./components/Navbar";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
-=======
 import React, { useState, Fragment } from "react"
 import "./App.css"
 import Alert from "./components/Alert"
@@ -18,7 +5,6 @@ import About from "./components/About"
 import TextForm from "./components/TextForm"
 import Navbar from "./components/Navbar"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
->>>>>>> 297559bf420111955b69167bafcdfe13e26a12fc
 
 function App() {
  const [mode, setMode] = useState("light")
@@ -51,39 +37,6 @@ function App() {
    document.body.style.color = "black"
   }
  }
-
-<<<<<<< HEAD
-  const ChangeColorYellow = () => {
-    document.title = "Pratik's App | Yellow Mode";
-    document.body.style.backgroundColor = "#898f15";
-    document.body.style.color = "white";
-    document.getElementById("exampleFormControlTextarea1").style.backgroundColor = "white";
-    document.getElementById("exampleFormControlTextarea1").style.color = "black";
-    showAlert("Background Color Changed to Yellow", "success");
-  }
-  return (
-    <>
-
-
-      <Router>
-        <Fragment>
-
-        <Navbar title="MyApp" aboutName="About My Page" mode={mode} toggleMode={toggleMode} ChangeColorRed={ChangeColorRed} ChangeColorGreen={ChangeColorGreen} ChangeColorYellow={ChangeColorYellow} />
-        <Alert alertMessage={alert} />
-        <div className="container my-3">
-
-          <Routes>
-            <Route path="/about" element={<About />}>
-            </Route>
-            <Route path="/" element={<TextForm heading="Enter Your Text to Analyze" mode={mode} showAlert={showAlert} />}>
-            </Route>
-          </Routes>
-        </div>
-        </Fragment>
-      </Router>
-
-
-=======
  const ChangeColorRed = () => {
   document.title = "Pratik's App | Red Mode"
   document.body.style.backgroundColor = "#5c1b11"
@@ -100,7 +53,6 @@ function App() {
   document.getElementById("exampleFormControlTextarea1").style.color = "black"
   showAlert("Background Color Changed to Green", "success")
  }
->>>>>>> 297559bf420111955b69167bafcdfe13e26a12fc
 
  const ChangeColorYellow = () => {
   document.title = "Pratik's App | Yellow Mode"
@@ -111,22 +63,18 @@ function App() {
   showAlert("Background Color Changed to Yellow", "success")
  }
  return (
-  <>
-   <Router>
-    <Fragment>
-     <Navbar title="MyApp" aboutName="About My Page" mode={mode} toggleMode={toggleMode} ChangeColorRed={ChangeColorRed} ChangeColorGreen={ChangeColorGreen} ChangeColorYellow={ChangeColorYellow} />
-     <Alert alertMessage={alert} />
-     <div className="container my-3">
-      <Routes>
-       <Route path="/about" element={<About />}></Route>
-       <Route path="/" element={<TextForm heading="Enter Your Text to Analyze" mode={mode} showAlert={showAlert} />}>
-        {/* <TextForm /> */}
-       </Route>
-      </Routes>
-     </div>
-    </Fragment>
-   </Router>
-  </>
+  <Router>
+   <Fragment>
+    <Navbar title="MyApp" aboutName="About My Page" mode={mode} toggleMode={toggleMode} ChangeColorRed={ChangeColorRed} ChangeColorGreen={ChangeColorGreen} ChangeColorYellow={ChangeColorYellow} />
+    <Alert alertMessage={alert} />
+    <div className="container my-3">
+     <Routes>
+      <Route path="/about" element={<About />}></Route>
+      <Route path="/" element={<TextForm heading="Enter Your Text to Analyze" mode={mode} showAlert={showAlert} />}></Route>
+     </Routes>
+    </div>
+   </Fragment>
+  </Router>
  )
 }
 
