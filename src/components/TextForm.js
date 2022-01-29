@@ -2,6 +2,11 @@ import React, { useState } from "react";
 
 
 export default function TextForm(props) {
+
+  const style = {
+    backgroundColor: props.mode === "light" ? "#3d3d3b" : "white",
+    color: props.mode === "light" ? "white" : "black"
+  }
   const [text, useText] = useState("");
   const ChangeToUpperCase = () => {
     let UpperCaseText = text.toUpperCase();
@@ -28,6 +33,7 @@ export default function TextForm(props) {
       <h2>{props.heading}</h2>
       <div className="mb-3">
         <textarea
+        style={style}
           className="form-control"
           id="exampleFormControlTextarea1"
           rows="8"
@@ -53,7 +59,7 @@ export default function TextForm(props) {
       <p><b>Your Text Has :  <code>{text.split(" ").length} Words and {text.length} Characters</code></b></p>
       <p>Your Text Took {0.008 * text.split(" ").length} minutes to read.</p>
       <h2>Preview</h2>
-      <p>{text}</p>
+      <p>{text.length > 0 ? text : "Enter Something in the Text Box above to preview it here."}</p>
     </div>
     </>
   );
