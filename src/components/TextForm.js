@@ -27,12 +27,7 @@ export default function TextForm(props) {
   useText(event.target.value)
  }
 
- function wordcounter(text) {
-  let wordNumber = text.split(" ").filter(function (n) {
-   return n !== ""
-  }).length
-  return wordNumber
- }
+ 
 
  return (
   <>
@@ -41,13 +36,13 @@ export default function TextForm(props) {
     <div className="mb-3">
      <textarea style={style} className="form-control" id="exampleFormControlTextarea1" rows="8" value={text} onChange={ChangedEvent}></textarea>
     </div>
-    <button className="btn btn-outline-primary mx-2" onClick={ChangeToUpperCase}>
+    <button disabled={text.length === 0} className="btn btn-primary mx-4 my-2" onClick={ChangeToUpperCase}>
      Convert to Uppercase
     </button>
-    <button className="btn btn-outline-danger mx-2" onClick={ChangeToLowerCase}>
+    <button disabled={text.length === 0} className="btn btn-primary mx-4 my-2" onClick={ChangeToLowerCase}>
      Convert to Lowercase
     </button>
-    <button className="btn btn-outline-warning mx-2" onClick={ClearText}>
+    <button disabled={text.length === 0} className="btn btn-primary mx-4 my-2" onClick={ClearText}>
      Clear Text
     </button>
    </div>
@@ -59,11 +54,11 @@ export default function TextForm(props) {
      <b>
       Your Text Has :{" "}
       <code>
-       {wordcounter(text)} Words and {text.length} Characters
+       {text.split(" ").filter((element) =>{return element.length !== 0}).length} Words and {text.length} Characters
       </code>
      </b>
     </p>
-    <p>Your Text Took {0.008 * wordcounter(text)} minutes to read.</p>
+    <p>Your Text Took {text.split(" ").filter((element) =>{return element.length !== 0}).length} minutes to read.</p>
     <h2>Preview</h2>
     <p>{text.length > 0 ? text : "Enter Something in the Text Box above to preview it here."}</p>
    </div>
